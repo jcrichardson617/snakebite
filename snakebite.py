@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""# -*- coding: utf-8 -*-
 
 """
 
@@ -14,21 +19,12 @@ Created on Thu Feb 12 10:15:32 2026
 
 import pandas as pd
 
-import numpy as np
+url = "https://huggingface.co/datasets/electricsheepafrica/snakebite-envenomation/raw/main/data/snakebite_rural_health_centre.csv"
 
- 
+df = pd.read_csv(url)
 
-from datasets import load_dataset
-
-dataset = load_dataset("electricsheepafrica/snakebite-envenomation", "district_hospital")
-
-df = dataset["train"].to_pandas()
-
- 
-
-df = pd.read_csv("downloads/snakebite_district_hospital.csv")
-
- 
+print(df.shape)
+print(df.head())
 
 df = df[(df["dry_bite"] == 0)]
 
@@ -42,14 +38,7 @@ df = df[(df["dry_bite"] == 0)]
 
 # ==========================================
 
-import re
-
-import numpy as np
-
-import pandas as pd
-
  
-
 from sklearn.model_selection import train_test_split
 
 from sklearn.compose import ColumnTransformer
@@ -497,3 +486,4 @@ feat_imp = (
 print("\nTop 25 features by importance:")
 
 print(feat_imp.head(25))
+
